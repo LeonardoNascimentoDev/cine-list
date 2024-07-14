@@ -14,27 +14,36 @@
         type="text"
         placeholder="Pesquisar filmes"
       />
+      <SearchSugestions />
     </div>
 
     <router-link class="favorite" to="/favorites">
       <img src="../assets/icons/favorite.svg" />
       <span>Favoritos</span>
     </router-link>
-    <Corner />
   </header>
 </template>
 
 <script>
+import SearchSugestions from "@/components/SearchSugestions.vue";
 
 export default {
   name: "TheHeader",
 
   components: {
+    SearchSugestions,
   },
 
   data() {
     return {
+      searched_movie: "",
     };
+  },
+
+  watch: {
+    searched_movie(value) {
+      this.$store.dispatch("fetchSearchedMovies", value);
+    },
   },
 };
 </script>
