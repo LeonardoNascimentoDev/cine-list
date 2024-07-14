@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import Pagination from "@/components/Pagination.vue";
 import MovieCard from "@/components/MovieCard.vue";
 import useFetch from "@/composables/fetch";
 import ratingsColor from "@/utils/ratingsColor.js";
@@ -26,6 +27,7 @@ import ratingsColor from "@/utils/ratingsColor.js";
 export default {
   name: "MoviesList",
   components: {
+    Pagination,
     MovieCard,
   },
 
