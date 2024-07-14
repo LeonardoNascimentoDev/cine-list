@@ -2,19 +2,31 @@
   <div v-if="movies" class="container">
     <div>
       <slot></slot>
+      <Pagination
+        @paginate="paginate"
+        :currentPage="movies.page"
+        :totalPages="movies.total_pages"
+      />
     </div>
     <ul ref="movies" class="movies">
+      <MovieCard
+        v-for="movie in movies.results"
+        :key="movie.id"
+        :movie="movie"
+      />
     </ul>
   </div>
 </template>
 
 <script>
+import MovieCard from "@/components/MovieCard.vue";
 import useFetch from "@/composables/fetch";
 import ratingsColor from "@/utils/ratingsColor.js";
 
 export default {
   name: "MoviesList",
   components: {
+    MovieCard,
   },
 
   props: {
