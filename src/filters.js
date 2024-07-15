@@ -13,3 +13,8 @@ export function dateFilter(value, type) {
     }
   }
 }
+
+export function ratingAverageFilter(value) {
+  value.toString();
+  return value.length === 1 ? value + ".0" : value;
+}

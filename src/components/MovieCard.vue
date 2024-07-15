@@ -9,18 +9,36 @@
       :src="$store.state.url_images + 'w342/' + movie.poster_path"
       :alt="movie.title"
     />
+
+    <div class="movie_details">
+      <span>{{ movie.release_date | dateFilter("short") }}</span>
+      <h3>{{ movie.title }}</h3>
+    </div>
+
     <span class="rating_average">{{
       movie.vote_average.toFixed(1) | ratingAverageFilter
     }}</span>
 
+    <FavoriteButton :movie="movie" />
   </router-link>
 </template>
 
 <script>
+import FavoriteButton from "@/components/FavoriteButton.vue";
+import { dateFilter, ratingAverageFilter } from "@/filters.js";
 import ratingsColor from "@/utils/ratingsColor.js";
 
 export default {
   name: "MovieCard",
+
+  filters: {
+    dateFilter,
+    ratingAverageFilter,
+  },
+
+  components: {
+    FavoriteButton,
+  },
 
   props: {
     movie: { required: true },
@@ -47,6 +65,11 @@ export default {
   transition: 0.2s;
   &:hover {
     transform: scale(1.1);
+
+    .favorite {
+      opacity: initial;
+      pointer-events: initial;
+    }
 
     .movie_details {
       display: grid;
@@ -109,6 +132,17 @@ export default {
     padding: 5px;
   }
 
+  .favorite {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    @include responsive("small") {
+      opacity: initial;
+      pointer-events: initial;
+    }
+  }
 }
 
 @keyframes show_details {
