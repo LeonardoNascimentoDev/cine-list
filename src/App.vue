@@ -5,8 +5,25 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 
-export default {};
+export default {
+  computed: {
+    ...mapState(["favorite_movies"]),
+  },
+
+  created() {
+    if (localStorage.favoriteMovies) {
+      this.$store.commit("UPDATE_LS", JSON.parse(localStorage.favoriteMovies));
+    }
+  },
+
+  watch: {
+    favorite_movies() {
+      localStorage.favoriteMovies = JSON.stringify(this.favorite_movies);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
