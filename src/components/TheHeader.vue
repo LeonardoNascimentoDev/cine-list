@@ -3,7 +3,7 @@
     <router-link class="logo" to="/">
       <img
         width="100px"
-        src=""
+        src="../assets/logo_cine.jpg"
         alt="CineList"
       />
     </router-link>
