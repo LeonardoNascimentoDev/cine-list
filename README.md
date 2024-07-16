@@ -47,6 +47,11 @@ $ git clone git@github.com:LeonardoNascimentoDev/cine-list.git
 # Acesse a pasta do projeto no seu terminal/cmd
 $ cd cine-list
 
+# install project dependencies
+$ npm install
+
+$ npm run start
+
 # A aplicação será aberta na porta:8080 - acesse http://localhost:8080
 ```
 ---
