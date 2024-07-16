@@ -101,6 +101,7 @@
 
 <script>
 import pageTitle from "@/utils/pageTitle.js";
+import ActorCard from "@/components/ActorCard.vue";
 import FavoriteButton from "@/components/FavoriteButton.vue";
 import useFetch from "@/composables/fetch";
 import { dateFilter, genreFilter, currencyFilter } from "@/filters.js";
@@ -110,6 +111,7 @@ export default {
   name: "Movie",
 
   components: {
+    ActorCard,
     FavoriteButton,
   },
 

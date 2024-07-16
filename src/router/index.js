@@ -2,8 +2,9 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import Home from "@/views/Home.vue";
-import Movie from "@/views/Movie.vue";
 import Favorites from "@/views/Favorites.vue";
+import Movie from "@/views/Movie.vue";
+import Actor from "@/views/Actor.vue";
 
 Vue.use(Router);
 
@@ -20,6 +21,10 @@ export default new Router({
       redirect: "/"
     },
     {
+      path: "/actor",
+      redirect: "/"
+    },
+    {
       name: "Favorites",
       path: "/favorites",
       component: Favorites
@@ -29,6 +34,12 @@ export default new Router({
       path: "/movie/:movie_id",
       component: Movie,
       props: true
-    },    
+    },
+    {
+      name: "Actor",
+      path: "/actor/:actor_id",
+      component: Actor,
+      props: true
+    }
   ]
 });
