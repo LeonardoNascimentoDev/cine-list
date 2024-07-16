@@ -20,7 +20,7 @@
 ## ⚙️ Funcionalidades
 
 - [x] Página inicial com todos gêneros.
-- [x] Pesquisar por deteminado filme, na barra de busca
+- [x] Pesquisar por deteminado filme, na barra de busca.
 - [x] Adicionar filme a lista de favoritos.
 - [x] Tela de detalhes dos filmes.
 - [x] Assistir trailler.
